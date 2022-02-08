@@ -12,7 +12,7 @@ namespace Storage.Abstraction.Contract
         Task<string> UploadBlob(string id, object blob,string containerName);
         Task<object> Get(Guid id,string containerId);
         IEnumerable<object> Get(string containerId);
-        bool RemoveBlob(Guid id);
+        Task<bool> RemoveBlob(Guid id,string containerId);
 
 
     }

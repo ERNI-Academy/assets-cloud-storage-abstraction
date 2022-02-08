@@ -1,38 +1,45 @@
-# About {{ Name }}
-ERNI Academy StarterKit, PoC, or Gidelines. This is an about description of your repository.
+# About 
+**Cloud Storage Abstraction** is a small dll ( on the next iteration, it will be a nuget package) that provides a robust and reusable implementations. 
+
+The main focus is work with CRUD approach with Azure Storage.
 
 ## Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- [Tools A](https://example.com)
-- [Framework B](https://example.com)
-- [Project C](https://example.com)
+- [.Net Core 3.1](https://docs.microsoft.com/es-es/dotnet/core/whats-new/dotnet-core-3-1)
+- [c# 8](https://docs.microsoft.com/es-es/dotnet/csharp/whats-new/csharp-8)
+
 
 # Features
-- Be awesome
-- Make things faster
+- Create Container
+- Upload Blob
+- Get list of blobs
+- Get concrete blob
+- Delete blob
 
 # Getting Started
 This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
 
 ## Prerequisites
-This is an example of how to list things you need to use the software and how to install them.
+
+ - [.Net Core 3.1](https://docs.microsoft.com/es-es/dotnet/core/whats-new/dotnet-core-3-1)
+- [c# 8](https://docs.microsoft.com/es-es/dotnet/csharp/whats-new/csharp-8)
+
+
+## Dependencies
+
+- Newtonsoft 
+- Azure.Storage.Blob v12 
+- .NETStandard 2.0
+- System.Text.Json
 
 ## Installation
-Installation instructions {{ Name }} by running:
+At this point, it is possible to use that asset:
+- Cloning the repo and use it directly on you solution. On this way, you will have access too entire code. 
+- Using the dll located on Release folder
 
-1. Clone the repo
-   ```sh 
-   git clone https://github.com/ERNI-Academy/Project-Name.git
-   ```
-2. Install packages
-    ```sh
-    npm install
-    ```
-3. Configure
-    ```JS
-    const API_KEY = 'ENTER YOUR API';
-    ```
+# Samples
+
+
 
 # Contributing
 

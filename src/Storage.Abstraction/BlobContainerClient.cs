@@ -1,4 +1,5 @@
-﻿using Azure.Storage.Blobs;
+﻿using Azure;
+using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Newtonsoft.Json;
 using Storage.Abstraction.Contract;
@@ -41,6 +42,7 @@ namespace Storage.Abstraction
 
             BlobClient blobJson = containerClient.GetBlobClient(id.ToString());
             object blob = await GetEntityBlobAsync<object>(blobJson);
+            
             return blob;
         }
 
@@ -62,9 +64,24 @@ namespace Storage.Abstraction
         }
 
 
-        public bool RemoveBlob(Guid id)
+        public async Task<bool> RemoveBlob(Guid id,string containerId)
         {
-            throw new NotImplementedException();
+            Azure.Storage.Blobs.BlobContainerClient containerClient = await CreateContainerIfNotExist(containerId);
+
+            // Get a reference to a blob
+            BlobClient blobClient = containerClient.GetBlobClient(id.ToString());
+            try
+            {
+                await blobClient.DeleteAsync();
+
+            }
+            catch (RequestFailedException ex)
+               when (ex.ErrorCode == BlobErrorCode.BlobNotFound)
+            {
+                return false;
+            }
+            return true;
+           
         }
 
         public async Task<string> UploadBlob(string id, object blob, string containerName)
@@ -74,7 +91,7 @@ namespace Storage.Abstraction
 
             // Get a reference to a blob
             BlobClient blobClient = containerClient.GetBlobClient(id);
-
+            
             Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
             var objToJSON = JsonConvert.SerializeObject(blob);
 
