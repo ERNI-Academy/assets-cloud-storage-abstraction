@@ -2,6 +2,7 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Newtonsoft.Json;
+using Storage.Abstraction.Config;
 using Storage.Abstraction.Contract;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,10 @@ namespace Storage.Abstraction
     public class BlobContainerClient : ContainerClientBase, IBlobContainerClient
     {
         private BlobServiceClient serviceClient;
-        public BlobContainerClient(object config) : base(config)
+        public BlobContainerClient(IContainerServiceConfig config) : base(config)
         {
             serviceClient = this.GetServiceClient();
         }
-
         public async Task<Azure.Storage.Blobs.BlobContainerClient> CreateContainerIfNotExist(string name = "")
         {
             string actualName = name ?? ("container" + Guid.NewGuid().ToString());
@@ -26,26 +26,20 @@ namespace Storage.Abstraction
             var exist = serviceClient.GetBlobContainerClient(actualName).Exists();
             if (!exist)
             {
-                //// Create the container and return a container client object
                 containerClient = await serviceClient.CreateBlobContainerAsync(actualName);
                 return containerClient.Value;
             }
             return serviceClient.GetBlobContainerClient(actualName);
         }
-
-
-
         public async Task<object> Get(Guid id, string containerId)
         {
             Azure.Storage.Blobs.BlobContainerClient containerClient = null;
             containerClient = await CreateContainerIfNotExist(containerId);
-
             BlobClient blobJson = containerClient.GetBlobClient(id.ToString());
             object blob = await GetEntityBlobAsync<object>(blobJson);
             
             return blob;
         }
-
         public  IEnumerable<object> Get(string containerId)
         {
             Azure.Storage.Blobs.BlobContainerClient containerClient = null;
@@ -54,26 +48,19 @@ namespace Storage.Abstraction
             foreach (BlobItem blob in containerClient.GetBlobs(BlobTraits.None, BlobStates.None, string.Empty))
             {
                 yield return Get(new Guid(blob.Name), containerId);
-                //yield return containerClient.GetBlobClient(blob.Name);
             }
         }
-
         public string GetConnectionString()
         {
-            return "";
+            return this.ConnectionString;
         }
-
-
         public async Task<bool> RemoveBlob(Guid id,string containerId)
         {
             Azure.Storage.Blobs.BlobContainerClient containerClient = await CreateContainerIfNotExist(containerId);
-
-            // Get a reference to a blob
             BlobClient blobClient = containerClient.GetBlobClient(id.ToString());
             try
             {
                 await blobClient.DeleteAsync();
-
             }
             catch (RequestFailedException ex)
                when (ex.ErrorCode == BlobErrorCode.BlobNotFound)
@@ -81,22 +68,12 @@ namespace Storage.Abstraction
                 return false;
             }
             return true;
-           
         }
-
         public async Task<string> UploadBlob(string id, object blob, string containerName)
         {
-
             Azure.Storage.Blobs.BlobContainerClient containerClient = await CreateContainerIfNotExist(containerName);
-
-            // Get a reference to a blob
             BlobClient blobClient = containerClient.GetBlobClient(id);
-            
-            Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri);
             var objToJSON = JsonConvert.SerializeObject(blob);
-
-            // Upload data from the local file
-            //v12 force to use streams, not string directly
             var res = await blobClient.UploadAsync(new MemoryStream(Encoding.UTF8.GetBytes(objToJSON)),
                                new BlobHttpHeaders()
                                {
@@ -104,7 +81,5 @@ namespace Storage.Abstraction
                                });
             return res.GetRawResponse().Status.ToString();
         }
-
-       
     }
 }
