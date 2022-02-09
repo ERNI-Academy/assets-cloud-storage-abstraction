@@ -17,12 +17,12 @@ namespace Storage.Abstraction
         protected string ConnectionString 
         { 
             get {
-                if (this.config != null) return config. ;
+                if (this.config != null) return config.GetConnectionString();
                 else throw new NotImplementedException(); 
             }
             set { }
         }
-        private object config;
+        private IContainerServiceConfig config;
         public ContainerClientBase(IContainerServiceConfig config)
         {
             this.config = config;

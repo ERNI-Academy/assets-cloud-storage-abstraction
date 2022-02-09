@@ -17,7 +17,7 @@ namespace Storage.Abstraction
         private BlobServiceClient serviceClient;
         public BlobContainerClient(IContainerServiceConfig config) : base(config)
         {
-            serviceClient = this.GetServiceClient();
+            serviceClient = GetServiceClient();
         }
         public async Task<Azure.Storage.Blobs.BlobContainerClient> CreateContainerIfNotExist(string name = "")
         {
