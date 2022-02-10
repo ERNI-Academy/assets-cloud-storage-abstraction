@@ -17,7 +17,9 @@ The main focus is work with CRUD approach with Azure Storage.
 - Delete blob
 
 # Getting Started
-This is an example of how you may give instructions on setting up your project locally. To get a local copy up and running follow these simple example steps.
+At this point, we have to use this project like dll or directly on our production projects.
+
+On next releases, we transform the solution into nuget. 
 
 ## Prerequisites
 
@@ -37,9 +39,26 @@ At this point, it is possible to use that asset:
 - Cloning the repo and use it directly on you solution. On this way, you will have access too entire code. 
 - Using the dll located on Release folder
 
-# Samples
+## Notes
 
+- the interface **IContainerServiceConfig** has a default implementation that is forbidden use it on production. **ALWAYS RETURN** a connection srting for the Azure Storage Emulator. 
+- You should implement your own class where you could manage your proper connectionstring
 
+## samples
+
+```c#
+ IContainerServiceConfig config = new ContainerServiceDevelopmentConfig();
+ Console.WriteLine($"ConnectionString used: {config.GetConnectionString()}");
+ Console.WriteLine("first sample about upload an object");
+ IBlobContainerClient blobClient = new BlobContainerClient(config);
+ var obj = new { name = "Smith", age = 38 };
+ Guid id = Guid.NewGuid();
+ string containerName = "localcontainer";
+ Console.WriteLine($"object used: {obj}");
+ var blobLink = blobClient.UploadBlob(id.ToString(), obj, containerName).Result;
+ Console.WriteLine($"Http code response: {blobLink}");
+```
+* take care about that sample are instances directly. In general situation, we should use DI. 
 
 # Contributing
 
@@ -47,9 +66,8 @@ Please see our [Contribution Guide](CONTRIBUTING.md) to learn how to contribute.
 
 # License
 
-[MIT](LICENSE) © {{ Year }} [ERNI - Swiss Software Engineering](https://www.betterask.erni)
+[MIT](LICENSE) © 2022 [ERNI - Swiss Software Engineering](https://www.betterask.erni)
 
 **Contact:** 
 
-{{ Your Name}}  - [@your_twitter](https://twitter.com/your_username) - your_mail
-@example.com
+Manu Delgado  - [@mdelgadodiaz83](https://twitter.com/MDelgadoDiaz83) - mdelgadodiaz83@gmail.com
