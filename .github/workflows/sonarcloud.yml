@@ -48,7 +48,6 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"ERNI-Academy_assets-cloud-storage-abstraction" /o:"erni-academy" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dir
-          dotnet restore
-          dotnet build --configuration Release --no-restore
+          .\src\Storage.Abstraction  dotnet restore
+          .\src\Storage.Abstraction  dotnet build --configuration Release --no-restore
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
