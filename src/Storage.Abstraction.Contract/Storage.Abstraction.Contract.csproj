@@ -4,7 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>   
     <RepositoryUrl>https://github.com/ERNI-Academy/assets-cloud-storage-abstraction</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-	<VersionPrefix>1.0.0</VersionPrefix>
+	<Authors>ErniAcademy</Authors>
+	<Company>Erni</Company>
+	<PackageDescription>Storage abstraction contract</PackageDescription>
+	<PackageTags>Azure Storage Blobs Abstraction</PackageTags>
+	<VersionPrefix>1.0.1</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
