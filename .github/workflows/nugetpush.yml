@@ -1,0 +1,26 @@
+name: NuGet
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Pack
+      run: dotnet pack --configuration Release -o nuget
+      shell: bash
+    - name: Push Storage.Abstraction.Contract
+      run: nuget push .\src\Storage.Abstraction.Contract\nuget\*.nupkg -Source "erni-academy"
+      shell: bash
+    - name: Push Storage.Abstraction
+      run: nuget push .\src\Storage.Abstraction\nuget\*.nupkg -Source "erni-academy" -api-key ${{ secrets.PACKAGESTOKEN }} --source "erni-academy"
+      shell: bash
