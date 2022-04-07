@@ -19,5 +19,5 @@ jobs:
       run: dotnet pack --configuration Release -o nuget
       shell: bash
     - name: Push
-      run: dotnet nuget push .\nuget\*.nupkg -source https://nuget.pkg.github.com/ERNI-Academy/index.json -api-key ${{ secrets.PACKAGESTOKEN }}
+      run: dotnet nuget push .\nuget\*.nupkg -Source https://nuget.pkg.github.com/ERNI-Academy/index.json -api-key ${{ secrets.PACKAGESTOKEN }}
       shell: bash
