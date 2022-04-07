@@ -3,8 +3,6 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Newtonsoft.Json;
 using Storage.Abstraction.Config;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +11,9 @@ namespace Storage.Abstraction
 {
     public class ContainerClientBase
     {
-        
-        protected string ConnectionString 
-        { 
-            get {
-                if (this.config != null) return config.GetConnectionString();
-                else throw new NotImplementedException(); 
-            }
-            set { }
-        }
-        private IContainerServiceConfig config;
+        protected string ConnectionString => config.GetConnectionString();
+
+        private readonly IContainerServiceConfig config;
         public ContainerClientBase(IContainerServiceConfig config)
         {
             this.config = config;
