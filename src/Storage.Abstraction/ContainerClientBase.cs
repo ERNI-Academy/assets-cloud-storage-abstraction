@@ -14,16 +14,20 @@ namespace Storage.Abstraction
         protected string ConnectionString => config.GetConnectionString();
 
         private readonly IContainerServiceConfig config;
+        private readonly JsonSerializer serializer;
+        
         public ContainerClientBase(IContainerServiceConfig config)
         {
             this.config = config;
+            this.serializer = new JsonSerializer();
         }
+
         protected BlobServiceClient GetServiceClient()
         {
-            
             BlobServiceClient blobServiceClient = new BlobServiceClient(this.ConnectionString);            
             return blobServiceClient;
         }
+
         protected async Task<Entity> GetEntityBlobAsync<Entity>(BlobClient blobJson) where Entity : class, new()
         {
             try
@@ -35,8 +39,7 @@ namespace Storage.Abstraction
                     {
                         using (JsonReader reader = new JsonTextReader(sr))
                         {
-                            JsonSerializer serializer = new JsonSerializer();
-                            return serializer.Deserialize<Entity>(reader);
+                            return this.serializer.Deserialize<Entity>(reader);
                         }
                     }
                 }
