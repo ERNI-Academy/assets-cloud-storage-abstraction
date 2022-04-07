@@ -18,9 +18,6 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release -o nuget
       shell: bash
-    - name: Push Storage.Abstraction.Contract
-      run: nuget push .\src\Storage.Abstraction.Contract\nuget\*.nupkg -Source "erni-academy"
-      shell: bash
-    - name: Push Storage.Abstraction
-      run: nuget push .\src\Storage.Abstraction\nuget\*.nupkg -Source "erni-academy" -api-key ${{ secrets.PACKAGESTOKEN }} --source "erni-academy"
+    - name: Push
+      run: nuget push .\nuget\*.nupkg -Source "erni-academy" -api-key ${{ secrets.PACKAGESTOKEN }} --source "erni-academy"
       shell: bash
