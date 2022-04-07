@@ -3,11 +3,11 @@ name: NuGet
 on:
   push:
     branches:
-      - feature/generate_nugets
-  #pull_request:
-  #  types: [closed]
-  #  branches:
-  #    - main
+      - main
+  pull_request:
+    types: [closed]
+    branches:
+      - main
 
 jobs:
   build:
