@@ -14,7 +14,7 @@ namespace Storage.Abstraction
 {
     public class BlobContainerClient : ContainerClientBase, IBlobContainerClient
     {
-        private BlobServiceClient serviceClient;
+        private readonly BlobServiceClient serviceClient;
         public BlobContainerClient(IContainerServiceConfig config) : base(config)
         {
             serviceClient = GetServiceClient();
