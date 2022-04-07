@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{41D8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{22691CAA-2E2D-458F-B1B4-B3E07B4FB968}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\nugetpush.yml = .github\workflows\nugetpush.yml
 		.github\workflows\sonarcloud.yml = .github\workflows\sonarcloud.yml
 	EndProjectSection
 EndProject

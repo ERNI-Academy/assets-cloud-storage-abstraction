@@ -1,7 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>   
+    <RepositoryUrl>https://github.com/ERNI-Academy/assets-cloud-storage-abstraction</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+	<Authors>ErniAcademy</Authors>
+	<Company>Erni</Company>
+	<PackageDescription>Storage abstraction contract</PackageDescription>
+	<PackageTags>Azure Storage Blobs Abstraction</PackageTags>
+	<VersionPrefix>1.0.1</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
