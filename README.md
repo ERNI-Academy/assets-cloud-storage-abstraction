@@ -5,7 +5,7 @@ The main focus is work with CRUD approach with Azure Storage.
 
 ## Built With
 
-- [.Net Core 3.1](https://docs.microsoft.com/es-es/dotnet/core/whats-new/dotnet-core-3-1)
+- [.Net 6.0](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6)
 - [c# 8](https://docs.microsoft.com/es-es/dotnet/csharp/whats-new/csharp-8)
 
 
@@ -23,7 +23,7 @@ On next releases, we transform the solution into nuget.
 
 ## Prerequisites
 
- - [.Net Core 3.1](https://docs.microsoft.com/es-es/dotnet/core/whats-new/dotnet-core-3-1)
+- [.Net 6.0](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6)
 - [c# 8](https://docs.microsoft.com/es-es/dotnet/csharp/whats-new/csharp-8)
 
 
@@ -31,7 +31,7 @@ On next releases, we transform the solution into nuget.
 
 - Newtonsoft 
 - Azure.Storage.Blob v12 
-- .NETStandard 2.0
+- .Net 6.0
 - System.Text.Json
 
 ## Installation
