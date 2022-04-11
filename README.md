@@ -5,7 +5,7 @@
 The main focus is work with CRUD approach with Azure Storage.
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Built With
@@ -108,6 +108,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/omaramalfi"><img src="https://avatars.githubusercontent.com/u/85349124?v=4?s=100" width="100px;" alt=""/><br /><sub><b>omaramalfi</b></sub></a><br /><a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/commits?author=omaramalfi" title="Code">💻</a> <a href="#content-omaramalfi" title="Content">🖋</a> <a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/commits?author=omaramalfi" title="Documentation">📖</a> <a href="#design-omaramalfi" title="Design">🎨</a> <a href="#ideas-omaramalfi" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-omaramalfi" title="Maintenance">🚧</a> <a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/commits?author=omaramalfi" title="Tests">⚠️</a> <a href="#example-omaramalfi" title="Examples">💡</a> <a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/pulls?q=is%3Apr+reviewed-by%3Aomaramalfi" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/mdelgadodiaz83-erni"><img src="https://avatars.githubusercontent.com/u/85220317?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mdelgadodiaz83-erni</b></sub></a><br /><a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/commits?author=mdelgadodiaz83-erni" title="Code">💻</a> <a href="#content-mdelgadodiaz83-erni" title="Content">🖋</a> <a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/commits?author=mdelgadodiaz83-erni" title="Documentation">📖</a> <a href="#design-mdelgadodiaz83-erni" title="Design">🎨</a> <a href="#ideas-mdelgadodiaz83-erni" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-mdelgadodiaz83-erni" title="Maintenance">🚧</a> <a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/commits?author=mdelgadodiaz83-erni" title="Tests">⚠️</a> <a href="#example-mdelgadodiaz83-erni" title="Examples">💡</a> <a href="https://github.com/ERNI-Academy/assets-cloud-storage-abstraction/pulls?q=is%3Apr+reviewed-by%3Amdelgadodiaz83-erni" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
