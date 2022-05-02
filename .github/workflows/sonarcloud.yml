@@ -16,6 +16,8 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v3
+
       - id: sonarcloud
         uses: ERNI-Academy/assets-github-actions-dotnet-sonarcloud@v1
         with:
