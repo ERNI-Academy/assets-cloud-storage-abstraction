@@ -46,7 +46,7 @@ git clone https://github.com/ERNI-Academy/assets-cloud-storage-abstraction.git
 ```
 ## Notes
 
-- the interface **IContainerServiceConfig** has a default implementation that is forbidden use it on production. **ALWAYS RETURN** a connection srting for the Azure Storage Emulator.
+- the interface **IContainerServiceConfig** has a default implementation that is forbidden use it on production. **ALWAYS RETURN** a connection string for the Azure Storage Emulator.
 - You should implement your own class where you could manage your proper connectionstring
 
 ## samples
