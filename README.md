@@ -41,14 +41,12 @@ On next releases, we transform the solution into nuget.
 
 ## Installation
 
-At this point, it is possible to use that asset:
-
-- Cloning the repo and use it directly on you solution. On this way, you will have access too entire code.
-- Using the dll located on Release folder
-
+```sh
+git clone https://github.com/ERNI-Academy/assets-cloud-storage-abstraction.git
+```
 ## Notes
 
-- the interface **IContainerServiceConfig** has a default implementation that is forbidden use it on production. **ALWAYS RETURN** a connection srting for the Azure Storage Emulator.
+- the interface **IContainerServiceConfig** has a default implementation that is forbidden use it on production. **ALWAYS RETURN** a connection string for the Azure Storage Emulator.
 - You should implement your own class where you could manage your proper connectionstring
 
 ## samples
@@ -76,7 +74,7 @@ Please see our [Contribution Guide](CONTRIBUTING.md) to learn how to contribute.
 
 ![MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-(LICENSE) © {{Year}} [ERNI - Swiss Software Engineering](https://www.betterask.erni)
+(LICENSE) © 2022 [ERNI - Swiss Software Engineering](https://www.betterask.erni)
 
 ## Code of conduct
 
@@ -84,7 +82,7 @@ Please see our [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Stats
 
-![https://repobeats.axiom.co/api/embed/4564855c7fec933f06c61413a4403a3aff4c28fd.svg](https://repobeats.axiom.co/api/embed/4564855c7fec933f06c61413a4403a3aff4c28fd.svg)
+![Alt](https://repobeats.axiom.co/api/embed/911a546db445db2cf7937deb4bcfbbda50d8404b.svg "Repobeats analytics image")
 
 ## Follow us
 
