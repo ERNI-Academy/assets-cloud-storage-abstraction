@@ -14,7 +14,7 @@ Blob storage is designed for:
 
 **Cloud Storage Abstraction** is a small dll ( on the next iteration, it will be a nuget package) that provides a robust and reusable implementations.
 
-> With this package we standardize the usage and implementation of [Azure Storage Blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/) in all your code.
+> With this package we standardize the usage and implementation of [Azure Storage Blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction#blob-storage-resources) in all your code.
 > 
 > With this implementation you have both publish and subscriber clients available at one sight. 
 
