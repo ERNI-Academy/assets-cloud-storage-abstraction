@@ -60,6 +60,62 @@ On next releases, we transform the solution into nuget.
 ```sh
 git clone https://github.com/ERNI-Academy/assets-cloud-storage-abstraction.git
 ```
+
+## Object definitions
+
+### IBlobContainerClient
+
+That contract contains all methods to manage a default CRUD.
+
+```c#
+    public interface IBlobContainerClient
+    {
+        string GetConnectionString();
+        Task<Azure.Storage.Blobs.BlobContainerClient> CreateContainerIfNotExist(string name = "");
+        Task<string> UploadBlob(string id, object blob, string containerName);
+        Task<object> Get(Guid id, string containerId);
+        IEnumerable<object> Get(string containerId);
+        Task<bool> RemoveBlob(Guid id, string containerId);
+    }
+```
+### BlobContainerClient
+
+That is the main implementation. It is the client to manage the CRUD operations with a concrete blob container.
+
+```c#
+    public class BlobContainerClient : ContainerClientBase, IBlobContainerClient
+    {
+        private BlobServiceClient serviceClient;
+        public BlobContainerClient(IContainerServiceConfig config) : base(config){}
+        ...
+    }
+```
+### IContainerServiceConfig
+
+That contract specify the only way to assign a connectionstring to the **BlobContainerClient**
+
+```c#
+   public interface IContainerServiceConfig
+   {
+        string GetConnectionString();
+   }
+```
+### ContainerServiceDevelopmentConfig
+
+That implementation has the purpose to be used only to development environments. If you are developing and you want to use the local emulator, you could use that implementation. **but take care, that approach never can be used on production**
+
+```c#
+   public class ContainerServiceDevelopmentConfig : IContainerServiceConfig
+   {
+        public string GetConnectionString()
+        {
+            return "UseDevelopmentStorage=true";
+        }
+   }
+```
+
+
+
 ## Notes
 
 - the interface **IContainerServiceConfig** has a default implementation that is forbidden use it on production. **ALWAYS RETURN** a connection string for the Azure Storage Emulator.
