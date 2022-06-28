@@ -27,10 +27,12 @@ At this point, we have to use this project like dll or directly on our productio
 
 On next releases, we transform the solution into nuget.
 
-## Prerequisites
+## Pre-requisites
 
 - [.Net 6.0](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6)
 - [c# 8](https://docs.microsoft.com/es-es/dotnet/csharp/whats-new/csharp-8)
+- [Azure Blob Storage Emulator](https://docs.microsoft.com/es-es/azure/storage/common/storage-use-emulator)
+- [Azure Account](https://portal.azure.com)
 
 ## Dependencies
 
