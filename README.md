@@ -123,6 +123,8 @@ That implementation has the purpose to be used only to development environments.
 
 ## samples
 
+In order to run this sample, you need to have [Azure Blob Storage Emulator](https://docs.microsoft.com/es-es/azure/storage/common/storage-use-emulator)
+
 ```c#
  IContainerServiceConfig config = new ContainerServiceDevelopmentConfig();
  Console.WriteLine($"ConnectionString used: {config.GetConnectionString()}");
